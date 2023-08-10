@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+body {
+  /* margin: 10; */
+  /* background-color: #3f3f3f; */
+}
+
+.body-margin {
+  margin: 2rem; /* You can adjust the value as needed */
+}
+
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
