@@ -1,8 +1,23 @@
 import React from "react";
 import MealItemForm from "./MealItemForm";
 
-const MealCard = ({ name, description, price }) => {
+import { useContext } from "react";
+
+import CartContext from "../../../store/cart-context";
+
+const MealCard = ({ id, name, description, price }) => {
   const roundOfprice = `$${price.toFixed(2)}`;
+
+  const cartCtx = useContext(CartContext);
+
+  const addToCart = (amount) => {
+    cartCtx.addItem({
+      id: id,
+      name: name,
+      price: price,
+      amount: amount,
+    });
+  };
 
   return (
     <div className="flex bg-white border border-gray-300 rounded-lg shadow-md p-4">
@@ -17,7 +32,7 @@ const MealCard = ({ name, description, price }) => {
       </div>
 
       <div className="ml-4">
-        <MealItemForm />
+        <MealItemForm addToCart={addToCart} />
       </div>
     </div>
   );

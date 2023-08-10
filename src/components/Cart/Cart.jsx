@@ -1,38 +1,60 @@
-import React from "react";
+import React, { useContext } from "react";
 import Modal from "../UI/Modal";
+import CartContext from "../../store/cart-context";
+import CartItem from "./CartItem";
 
 const Cart = ({ onHide }) => {
+  const cartCtx = useContext(CartContext);
+
+  const hasItems = cartCtx.items.length > 0;
+
+  const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
+
+  const cartItemRemoveHandler = (id) => {
+    cartCtx.removeItem(id);
+  };
+
+  const cartItemAddHandler = (item) => {
+    cartCtx.addItem({ ...item, amount: 1 });
+  };
+
+  const cartItems = (
+    <ul className="space-y-4 overflow-y-auto max-h-60">
+      {cartCtx.items.map((item) => (
+        <CartItem
+          key={item.id}
+          name={item.name}
+          price={item.price}
+          amount={item.amount}
+          onRemove={cartItemRemoveHandler.bind(null, item.id)}
+          onAdd={cartItemAddHandler.bind(null, item)}
+        />
+      ))}
+    </ul>
+  );
+
+  // console.log(cartItems);
+
   return (
     <Modal>
-      <div className="p-4">
-        <h2 className="text-2xl font-bold mb-4">Your Cart</h2>
-
-        <ul className="space-y-2">
-          <li className="flex justify-between items-center">
-            <span>Item 1</span>
-            <span>$10.00</span>
-          </li>
-          <li className="flex justify-between items-center">
-            <span>Item 2</span>
-            <span>$15.00</span>
-          </li>
-        </ul>
-      </div>
+      <div className="p-4">{cartItems}</div>
       <div className="p-4 flex justify-between items-center">
-        <span>Total:</span>
-        <span className="font-bold">$25.00</span>
+        <span className="text-lg">Total:</span>
+        <span className="text-lg font-bold">{totalAmount}</span>
       </div>
       <div className="p-4 flex justify-end">
         <button
           onClick={onHide}
-          className="bg-blue-500 text-white px-4 py-2 rounded"
+          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none"
         >
           Continue Shopping
         </button>
 
-        <button className="bg-green-500 text-white px-4 py-2 ml-2 rounded">
-          Order Now
-        </button>
+        {hasItems && (
+          <button className="bg-green-500 text-white px-4 py-2 ml-2 rounded hover:bg-green-600 focus:outline-none">
+            Order Now
+          </button>
+        )}
       </div>
     </Modal>
   );

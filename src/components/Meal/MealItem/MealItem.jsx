@@ -2,10 +2,10 @@ import React from "react";
 
 import MealCard from "./MealCard";
 
-const MealItem = ({ name, price, description }) => {
+const MealItem = ({ id, name, price, description }) => {
   return (
     <div className="mb-4">
-      <MealCard name={name} price={price} description={description} />
+      <MealCard id={id} name={name} price={price} description={description} />
     </div>
   );
 };

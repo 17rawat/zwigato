@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useRef } from "react";
 
-const MealItemForm = () => {
+const MealItemForm = ({ addToCart }) => {
+  const inputRef = useRef();
+
+  const addHandler = (e) => {
+    e.preventDefault();
+
+    const enteredAmount = +inputRef.current.value;
+
+    if (enteredAmount < 1 || enteredAmount > 5) {
+      return;
+    }
+
+    addToCart(enteredAmount);
+  };
   return (
-    <form className="flex items-center">
+    <form className="flex items-center" onSubmit={addHandler}>
       <label className="mr-2">Amount</label>
       <input
+        ref={inputRef}
         className="border border-gray-300 rounded px-2 py-1 w-20"
         type="number"
         min="1"
