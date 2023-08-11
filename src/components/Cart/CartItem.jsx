@@ -8,8 +8,8 @@ const CartItem = (props) => {
       <div className="flex items-center">
         <h2 className="text-lg font-semibold">{props.name}</h2>
         <div className="ml-4">
-          <span className="text-gray-600 ">{price}</span>
-          <span className="text-gray-600 ml-2 border rounded px-1 py-1 border-gray-300">
+          <span className="text-gray-600">{price}</span>
+          <span className="ml-2 mr-2 text-gray-600 border rounded px-1 py-1 border-gray-300">
             x {props.amount}
           </span>
         </div>
