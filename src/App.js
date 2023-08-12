@@ -3,6 +3,7 @@ import { useState } from "react";
 import Meals from "./components/Meal/Meals";
 import Cart from "./components/Cart/Cart";
 import CartProvider from "./store/CartProvider";
+import Footer from "./components/layout/Footer";
 
 function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
@@ -19,7 +20,7 @@ function App() {
     <CartProvider>
       {cartIsShown && <Cart onHide={hideCartHandler} />}
 
-      <div className="flex flex-col h-screen">
+      <div className="flex flex-col min-h-screen">
         <header>
           <Header onShow={showCartHandler} />
         </header>
@@ -27,6 +28,10 @@ function App() {
         <main className="flex-grow overflow-y-auto">
           <Meals />
         </main>
+
+        <footer>
+          <Footer />
+        </footer>
       </div>
     </CartProvider>
   );

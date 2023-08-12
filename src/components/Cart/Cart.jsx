@@ -64,10 +64,19 @@ const Cart = ({ onHide }) => {
 
   const modalAction = (
     <Fragment>
-      <div className="p-4">{cartItems}</div>
-      <div className="p-4 flex justify-between items-center">
-        <span className="text-lg">Total:</span>
-        <span className="text-lg font-bold">{totalAmount}</span>
+      <div className="p-4">
+        {cartItems}
+
+        {cartCtx.items.length === 0 ? (
+          <p className="text-center text-lg text-gray-500">
+            Your cart is empty
+          </p>
+        ) : (
+          <div className="p-4 flex justify-between items-center">
+            <span className="text-lg">Total:</span>
+            <span className="text-lg font-bold">{totalAmount}</span>
+          </div>
+        )}
       </div>
 
       {isCheckOut && (
@@ -75,12 +84,12 @@ const Cart = ({ onHide }) => {
       )}
 
       {!isCheckOut && (
-        <div className="p-4 flex justify-end">
+        <div className="p-4 flex justify-center">
           <button
             onClick={onHide}
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none"
+            className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 focus:outline-none"
           >
-            Continue Shopping
+            Close
           </button>
 
           {hasItems && (

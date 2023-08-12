@@ -1,11 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import MealItemForm from "./MealItemForm";
-
-import { useContext } from "react";
 
 import CartContext from "../../../store/cart-context";
 
-const MealCard = ({ id, name, description, price }) => {
+const MealCard = ({ id, name, description, price, rating }) => {
   const roundOfprice = `$${price.toFixed(2)}`;
 
   const cartCtx = useContext(CartContext);
@@ -24,7 +22,13 @@ const MealCard = ({ id, name, description, price }) => {
       <div className="flex-1">
         <div>
           <h3 className="text-xl font-semibold mb-2">{name}</h3>
+
           <div className="text-gray-600">{description}</div>
+          <div className="flex items-center mt-2">
+            <div className="bg-green-500 text-white rounded-full p-1.5 flex items-center">
+              <span className=" text-xs ">★ {rating.toFixed(1)}</span>
+            </div>
+          </div>
           <div className="text-purple-600 font-semibold mt-2">
             {roundOfprice}
           </div>

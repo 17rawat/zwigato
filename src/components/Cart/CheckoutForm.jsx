@@ -1,8 +1,10 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useRef, useState } from "react";
 
 import CartContext from "../../store/cart-context";
 
 const CheckOutForm = ({ onCancel, onConfirm }) => {
+  const [formIsValid, setFormIsValid] = useState(true);
+
   const cartCtx = useContext(CartContext);
 
   console.log(cartCtx.items);
@@ -21,6 +23,17 @@ const CheckOutForm = ({ onCancel, onConfirm }) => {
     const postalCode = postalCodeInputRef.current.value;
     const city = cityInputRef.current.value;
     const contactNo = contactNoInputRef.current.value;
+
+    if (
+      name.trim() === "" ||
+      address.trim() === "" ||
+      postalCode.trim() === "" ||
+      city.trim() === "" ||
+      contactNo.trim() === ""
+    ) {
+      setFormIsValid(false);
+      return;
+    }
 
     const userInfo = {
       name,
@@ -109,6 +122,10 @@ const CheckOutForm = ({ onCancel, onConfirm }) => {
           />
         </div>
       </div>
+
+      {!formIsValid && (
+        <p className="text-red-500 mt-2">Please fill out all fields.</p>
+      )}
 
       <div className="flex mt-2 justify-between">
         <button
