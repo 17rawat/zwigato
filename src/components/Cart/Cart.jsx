@@ -51,7 +51,7 @@ const Cart = ({ onHide }) => {
   const orderSubmitHandler = async (userInfo, paymentInfo) => {
     setIsSubmitting(true);
     await axios.post(
-      "https://zwigato-c9665-default-rtdb.firebaseio.com/orders.json",
+      "https://zwigato-3835a-default-rtdb.firebaseio.com/orders.json",
       {
         user: userInfo,
         orderedItems: cartCtx.items,
