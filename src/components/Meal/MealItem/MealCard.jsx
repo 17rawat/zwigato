@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import MealItemForm from "./MealItemForm";
+import AddMealItemForm from "./AddMealItemForm";
 
 import CartContext from "../../../store/cart-context";
 
@@ -18,7 +18,7 @@ const MealCard = ({ id, name, description, price, rating }) => {
   };
 
   return (
-    <div className="flex bg-white border border-gray-300 rounded-lg shadow-md p-4">
+    <div className="flex mb-4 bg-blue-100 border border-gray-300 rounded-lg shadow-md p-4">
       <div className="flex-1">
         <div>
           <h3 className="text-xl font-semibold mb-2">{name}</h3>
@@ -36,7 +36,7 @@ const MealCard = ({ id, name, description, price, rating }) => {
       </div>
 
       <div className="ml-4">
-        <MealItemForm addToCart={addToCart} />
+        <AddMealItemForm addToCart={addToCart} />
       </div>
     </div>
   );

@@ -48,11 +48,15 @@ const Cart = ({ onHide }) => {
     setIsCheckOut(true);
   };
 
-  const orderSubmitHandler = async (userInfo) => {
+  const orderSubmitHandler = async (userInfo, paymentInfo) => {
     setIsSubmitting(true);
     await axios.post(
       "https://zwigato-c9665-default-rtdb.firebaseio.com/orders.json",
-      { user: userInfo, orderedItems: cartCtx.items }
+      {
+        user: userInfo,
+        orderedItems: cartCtx.items,
+        paymentDetails: paymentInfo,
+      }
     );
 
     setIsSubmitting(false);
@@ -117,15 +121,15 @@ const Cart = ({ onHide }) => {
       {isOrderConfirmed && !isSubmitting && (
         <Fragment>
           <p className="text-center text-green-500 text-lg">
-            Order successfully placed
+            Order successfully placed!! Thank you for your order.
           </p>
 
           <div className="flex justify-center mt-4">
             <button
               onClick={onHide}
-              className=" m-2 bg-red-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none"
+              className="m-2 bg-red-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none"
             >
-              close
+              Close
             </button>
           </div>
         </Fragment>

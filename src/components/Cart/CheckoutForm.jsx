@@ -1,18 +1,12 @@
-import React, { useContext, useRef, useState } from "react";
-
-import CartContext from "../../store/cart-context";
+import React, { useRef, useState } from "react";
 
 const CheckOutForm = ({ onCancel, onConfirm }) => {
   const [formIsValid, setFormIsValid] = useState(true);
 
-  const cartCtx = useContext(CartContext);
-
-  console.log(cartCtx.items);
+  // console.log(cartCtx.items);
 
   const nameInputRef = useRef();
   const addressInputRef = useRef();
-  const postalCodeInputRef = useRef();
-  const cityInputRef = useRef();
   const contactNoInputRef = useRef();
 
   const confirmHandler = (e) => {
@@ -20,15 +14,11 @@ const CheckOutForm = ({ onCancel, onConfirm }) => {
 
     const name = nameInputRef.current.value;
     const address = addressInputRef.current.value;
-    const postalCode = postalCodeInputRef.current.value;
-    const city = cityInputRef.current.value;
     const contactNo = contactNoInputRef.current.value;
 
     if (
       name.trim() === "" ||
       address.trim() === "" ||
-      postalCode.trim() === "" ||
-      city.trim() === "" ||
       contactNo.trim() === ""
     ) {
       setFormIsValid(false);
@@ -38,95 +28,61 @@ const CheckOutForm = ({ onCancel, onConfirm }) => {
     const userInfo = {
       name,
       address,
-      postalCode,
-      city,
       contactNo,
     };
 
     onConfirm(userInfo);
-
-    // console.log(userInfo);
   };
 
   return (
-    <form className=" mx-auto  w-full" onSubmit={confirmHandler}>
-      <div className="overflow-y-auto max-h-60">
-        <div className="mb-4">
-          <label
-            htmlFor="name"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Your Name
-          </label>
-          <input
-            ref={nameInputRef}
-            type="text"
-            id="name"
-            className="mt-1 p-2 border rounded-md w-full"
-          />
-        </div>
-        <div className="mb-4">
-          <label
-            htmlFor="address"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Address
-          </label>
-          <input
-            ref={addressInputRef}
-            type="text"
-            id="street"
-            className="mt-1 p-2 border rounded-md w-full"
-          />
-        </div>
-        <div className="mb-4">
-          <label
-            htmlFor="postal"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Postal Code
-          </label>
-          <input
-            ref={postalCodeInputRef}
-            type="text"
-            id="postal"
-            className="mt-1 p-2 border rounded-md w-full"
-          />
-        </div>
-        <div className="mb-4">
-          <label
-            htmlFor="city"
-            className="block text-sm font-medium text-gray-700"
-          >
-            City
-          </label>
-          <input
-            ref={cityInputRef}
-            type="text"
-            id="city"
-            className="mt-1 p-2 border rounded-md w-full"
-          />
-        </div>
-        <div className="mb-4">
-          <label
-            htmlFor="mobile no"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Contact No
-          </label>
-          <input
-            ref={contactNoInputRef}
-            type="text"
-            id="mobile no"
-            className="mt-1 p-2 border rounded-md w-full"
-          />
-        </div>
+    <form className="mx-auto w-full" onSubmit={confirmHandler}>
+      {/* <div className="overflow-y-auto max-h-60"> */}
+      <div className="mb-4">
+        <label
+          htmlFor="name"
+          className="block text-sm font-medium text-gray-700"
+        >
+          Your Name
+        </label>
+        <input
+          ref={nameInputRef}
+          type="text"
+          id="name"
+          className="mt-1 p-2 border rounded-md w-full"
+        />
       </div>
-
+      <div className="mb-4">
+        <label
+          htmlFor="address"
+          className="block text-sm font-medium text-gray-700"
+        >
+          Address
+        </label>
+        <input
+          ref={addressInputRef}
+          type="text"
+          id="street"
+          className="mt-1 p-2 border rounded-md w-full"
+        />
+      </div>
+      <div className="mb-4">
+        <label
+          htmlFor="mobile no"
+          className="block text-sm font-medium text-gray-700"
+        >
+          Contact No
+        </label>
+        <input
+          ref={contactNoInputRef}
+          type="text"
+          id="mobile no"
+          className="mt-1 p-2 border rounded-md w-full"
+        />
+      </div>
+      {/* </div> */}
       {!formIsValid && (
         <p className="text-red-500 mt-2">Please fill out all fields.</p>
       )}
-
       <div className="flex mt-2 justify-between">
         <button
           type="button"
@@ -141,6 +97,12 @@ const CheckOutForm = ({ onCancel, onConfirm }) => {
         >
           Confirm
         </button>
+      </div>
+
+      <div className="flex justify-center animate-bounce">
+        <p className="text-blue-600 mt-4 bg-yellow-100 p-2 rounded-md shadow-md">
+          Payment will be cash on delivery.
+        </p>
       </div>
     </form>
   );

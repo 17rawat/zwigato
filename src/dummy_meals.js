@@ -216,6 +216,167 @@ const DUMMY_MEALS = [
     price: 4.99,
     rating: 4.5,
   },
+
+  {
+    id: "m32",
+    name: "Mango Lassi",
+    description:
+      "A refreshing yogurt-based drink made with ripe mangoes, yogurt, and a hint of cardamom.",
+    price: 3.99,
+    rating: 4.8,
+  },
+  {
+    id: "m33",
+    name: "Chicken Korma",
+    description:
+      "A creamy and mild chicken curry cooked with cashews, almonds, and aromatic spices.",
+    price: 13.99,
+    rating: 4.6,
+  },
+  {
+    id: "m34",
+    name: "Palak Tofu",
+    description:
+      "Tofu cubes cooked in a flavorful spinach sauce, a vegetarian take on the classic Palak Paneer.",
+    price: 10.99,
+    rating: 4.3,
+  },
+  {
+    id: "m35",
+    name: "Pav Bhaji",
+    description:
+      "A spicy and flavorful mix of vegetables served with buttered buns, a popular Mumbai street food.",
+    price: 8.99,
+    rating: 4.7,
+  },
+  {
+    id: "m36",
+    name: "Coconut Rice",
+    description:
+      "Fragrant rice cooked with coconut milk and tempered with curry leaves and mustard seeds.",
+    price: 6.99,
+    rating: 4.5,
+  },
+  {
+    id: "m37",
+    name: "Mango Srikhand",
+    description:
+      "A sweet and creamy dessert made from strained yogurt and ripe mango pulp, garnished with nuts.",
+    price: 5.99,
+    rating: 4.9,
+  },
+  {
+    id: "m38",
+    name: "Puliyogare",
+    description:
+      "Tamarind-flavored rice with a mix of spices and peanuts, a popular South Indian dish.",
+    price: 9.99,
+    rating: 4.4,
+  },
+  {
+    id: "m39",
+    name: "Rajasthani Gatte Curry",
+    description:
+      "Chickpea flour dumplings cooked in a spicy yogurt-based gravy, a traditional Rajasthani dish.",
+    price: 12.99,
+    rating: 4.6,
+  },
+  {
+    id: "m40",
+    name: "Baingan Bharta",
+    description:
+      "Roasted eggplant mashed and cooked with onions, tomatoes, and aromatic spices.",
+    price: 7.99,
+    rating: 4.2,
+  },
+  {
+    id: "m41",
+    name: "Pomegranate Raita",
+    description:
+      "A cooling yogurt side dish with pomegranate seeds, mint, and a touch of roasted cumin.",
+    price: 4.99,
+    rating: 4.7,
+  },
+  {
+    id: "m42",
+    name: "Thai Green Curry",
+    description:
+      "A fragrant and spicy coconut milk-based curry with vegetables and your choice of protein.",
+    price: 12.99,
+    rating: 4.5,
+  },
+  {
+    id: "m43",
+    name: "Sushi Rolls",
+    description:
+      "Assorted sushi rolls filled with fresh fish, vegetables, and rice, served with soy sauce and wasabi.",
+    price: 14.99,
+    rating: 4.8,
+  },
+  {
+    id: "m44",
+    name: "Mushroom Risotto",
+    description:
+      "Creamy arborio rice cooked with a medley of mushrooms, white wine, and Parmesan cheese.",
+    price: 11.99,
+    rating: 4.6,
+  },
+  {
+    id: "m45",
+    name: "Greek Salad",
+    description:
+      "A refreshing salad with tomatoes, cucumbers, red onions, olives, and feta cheese, drizzled with olive oil and oregano.",
+    price: 8.99,
+    rating: 4.3,
+  },
+  {
+    id: "m46",
+    name: "Tandoori Tofu",
+    description:
+      "Marinated tofu cubes grilled in a clay oven (tandoor) and served with mint chutney.",
+    price: 9.99,
+    rating: 4.7,
+  },
+  {
+    id: "m47",
+    name: "Moroccan Tagine",
+    description:
+      "Slow-cooked stew with tender meat, vegetables, and aromatic spices, served with couscous.",
+    price: 15.99,
+    rating: 4.4,
+  },
+  {
+    id: "m48",
+    name: "Vietnamese Pho",
+    description:
+      "A hearty noodle soup with fragrant broth, herbs, and your choice of beef, chicken, or tofu.",
+    price: 10.99,
+    rating: 4.6,
+  },
+  {
+    id: "m49",
+    name: "Peruvian Ceviche",
+    description:
+      "Fresh seafood marinated in citrus juices, mixed with onions, cilantro, and a touch of spice.",
+    price: 13.99,
+    rating: 4.2,
+  },
+  {
+    id: "m50",
+    name: "Italian Margherita Pizza",
+    description:
+      "Classic thin-crust pizza topped with tomato sauce, fresh mozzarella, basil leaves, and a drizzle of olive oil.",
+    price: 12.99,
+    rating: 4.7,
+  },
+  {
+    id: "m51",
+    name: "Lebanese Mezze Platter",
+    description:
+      "An assortment of small dishes including hummus, falafel, tabbouleh, and pita bread, perfect for sharing.",
+    price: 16.99,
+    rating: 4.5,
+  },
 ];
 
 export default DUMMY_MEALS;

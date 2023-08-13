@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import MealItem from "./MealItem/MealItem";
+
 import { BsSearch } from "react-icons/bs";
 
 import Dummy_Meals from "../../dummy_meals";
+import MealCard from "./MealItem/MealCard";
 
 const AvailableMeals = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -18,7 +19,7 @@ const AvailableMeals = () => {
   // console.log(filteredMeals);
 
   const mealsList = filteredMeals.map((meal) => (
-    <MealItem
+    <MealCard
       key={meal.id}
       id={meal.id}
       name={meal.name}
